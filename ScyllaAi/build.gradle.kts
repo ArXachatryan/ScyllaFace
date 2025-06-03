@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.parcelize)
+    id("maven-publish")
 }
 
 android {
@@ -32,6 +33,28 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+}
+
+
+publishing {
+    publications {
+        create<MavenPublication>("bar") {
+            groupId = "com.scylla"
+            artifactId = "scyllaai"
+            version = "1.0.0"
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/ArXachatryan/ScyllaFace")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
     }
 }
 

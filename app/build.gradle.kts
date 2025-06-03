@@ -39,6 +39,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation(project(":ScyllaAi"))
     //    implementation ("com.github.FaciaMobile:android-core:3.1.0")
