@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "3.0.9"
+            version = "4.0.2"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
 
             pom.withXml {
@@ -54,7 +54,8 @@ publishing {
                     Triple("androidx.navigation", "navigation-runtime", "2.9.0"),
                     Triple("androidx.navigation", "navigation-runtime-ktx", "2.9.0"),
                     Triple("androidx.navigation", "navigation-common", "2.9.0"),
-                    Triple("androidx.navigation", "navigation-common-ktx", "2.9.0")
+                    Triple("androidx.navigation", "navigation-common-ktx", "2.9.0"),
+                    Triple("com.airbnb.android", "lottie-compose", "4.12.0")
                 )
 
                 navDependencies.forEach { (groupId, artifactId, version) ->
