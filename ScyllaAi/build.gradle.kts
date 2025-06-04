@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "3.0.3"
+            version = "3.0.5"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
@@ -137,19 +137,20 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.logging.interceptor)
-    implementation(libs.androidx.navigation.compose)
+//    api(libs.androidx.navigation.compose)
+    api("androidx.navigation:navigation-compose:2.9.0")
 
     implementation(libs.androidx.activity.compose.v180)
     implementation(libs.accompanist.permissions)
-    implementation(libs.lottie.compose)
+    api(libs.lottie.compose)
 
     implementation(libs.koin.androidx.compose)
-    implementation(libs.androidx.camera.camera2)
-    implementation(libs.androidx.camera.lifecycle)
-    implementation(libs.androidx.camera.view)
-//    implementation(libs.face.detection)
+    api(libs.androidx.camera.camera2)
+    api(libs.androidx.camera.lifecycle)
+    api(libs.androidx.camera.view)
+    api(libs.face.detection)
 
-    implementation("com.google.mlkit:face-detection:16.1.7")
+//    api("com.google.mlkit:face-detection:16.1.7")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.core.ktx)
