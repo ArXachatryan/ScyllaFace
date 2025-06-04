@@ -42,12 +42,19 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "1.0.4"
+            version = "1.0.3"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
     repositories {
-        mavenLocal()
+        maven {
+            name = "ScyllaFace"
+            url = uri("https://maven.pkg.github.com/ArXachatryan/ScyllaFace")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
     }
 }
 
@@ -126,21 +133,21 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
-    implementation (libs.logging.interceptor)
+    implementation(libs.logging.interceptor)
     implementation(libs.androidx.navigation.compose)
 
-    implementation (libs.androidx.activity.compose.v180)
-    implementation (libs.accompanist.permissions)
-    implementation (libs.lottie.compose)
+    implementation(libs.androidx.activity.compose.v180)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.lottie.compose)
 
-    implementation (libs.koin.androidx.compose)
-    implementation (libs.androidx.camera.camera2)
-    implementation (libs.androidx.camera.lifecycle)
-    implementation (libs.androidx.camera.view)
-    implementation (libs.face.detection)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.face.detection)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.core.ktx)

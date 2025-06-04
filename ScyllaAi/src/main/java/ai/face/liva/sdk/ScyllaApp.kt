@@ -6,8 +6,17 @@ import android.app.Application
 
 open class ScyllaApp  {
 
-     fun initScyllaApp(application: Application) {
-        initKoin(application)
+    fun initScyllaApp(application: Application) {
+        try {
+           initKoin(application)
+        }catch (e:Exception){}
+
         AppContextHolder.scyllaGlobalContext = application.applicationContext
     }
+
+    fun testTest() {
+
+
+    }
 }
+
