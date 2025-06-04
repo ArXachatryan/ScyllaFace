@@ -16,7 +16,6 @@ open class ScyllaApp  {
 
     fun testTest() {
 
-
     }
 }
 
