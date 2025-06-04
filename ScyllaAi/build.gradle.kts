@@ -34,8 +34,22 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("bar") {
+            groupId = "com.scylla"
+            artifactId = "scyllaai"
+            version = "1.0.4"
+            artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
 
 //publishing {
 //    publications {
@@ -59,52 +73,52 @@ android {
 //    }
 //}
 
-publishing {
-    publications {
-        create<MavenPublication>("bar") {
-            groupId = "com.scylla"
-            artifactId = "scyllaai"
-            version = "1.0.1"
-            artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
-
-            // Add these for better dependency resolution
-            pom {
-                name.set("ScyllaAi")
-                description.set("Scylla AI Library")
-                url.set("https://github.com/ArXachatryan/ScyllaFace")
-                licenses {
-                    license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("ArXachatryan")
-                        name.set("Your Name")
-                        email.set("your.email@example.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/ArXachatryan/ScyllaFace.git")
-                    developerConnection.set("scm:git:ssh://github.com:ArXachatryan/ScyllaFace.git")
-                    url.set("https://github.com/ArXachatryan/ScyllaFace/tree/main")
-                }
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            name = "ScyllaFace"
-            url = uri("https://maven.pkg.github.com/ArXachatryan/ScyllaFace")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
-            }
-        }
-    }
-}
+//publishing {
+//    publications {
+//        create<MavenPublication>("bar") {
+//            groupId = "com.scylla"
+//            artifactId = "scyllaai"
+//            version = "1.0.3"
+//            artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
+//
+//            // Add these for better dependency resolution
+//            pom {
+//                name.set("ScyllaAi")
+//                description.set("Scylla AI Library")
+//                url.set("https://github.com/ArXachatryan/ScyllaFace")
+//                licenses {
+//                    license {
+//                        name.set("The Apache License, Version 2.0")
+//                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id.set("ArXachatryan")
+//                        name.set("Your Name")
+//                        email.set("your.email@example.com")
+//                    }
+//                }
+//                scm {
+//                    connection.set("scm:git:git://github.com/ArXachatryan/ScyllaFace.git")
+//                    developerConnection.set("scm:git:ssh://github.com:ArXachatryan/ScyllaFace.git")
+//                    url.set("https://github.com/ArXachatryan/ScyllaFace/tree/main")
+//                }
+//            }
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            name = "ScyllaFace"
+//            url = uri("https://maven.pkg.github.com/ArXachatryan/ScyllaFace")
+//            credentials {
+//                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+//                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 
