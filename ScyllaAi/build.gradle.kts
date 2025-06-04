@@ -42,8 +42,28 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "3.0.6"
+            version = "3.0.9"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
+
+            pom.withXml {
+                val dependenciesNode = asNode().appendNode("dependencies")
+
+                // Manually add your navigation dependencies
+                val navDependencies = listOf(
+                    Triple("androidx.navigation", "navigation-compose", "2.9.0"),
+                    Triple("androidx.navigation", "navigation-runtime", "2.9.0"),
+                    Triple("androidx.navigation", "navigation-runtime-ktx", "2.9.0"),
+                    Triple("androidx.navigation", "navigation-common", "2.9.0"),
+                    Triple("androidx.navigation", "navigation-common-ktx", "2.9.0")
+                )
+
+                navDependencies.forEach { (groupId, artifactId, version) ->
+                    val dependencyNode = dependenciesNode.appendNode("dependency")
+                    dependencyNode.appendNode("groupId", groupId)
+                    dependencyNode.appendNode("artifactId", artifactId)
+                    dependencyNode.appendNode("version", version)
+                }
+            }
         }
     }
     repositories {
@@ -139,13 +159,10 @@ dependencies {
     implementation(libs.logging.interceptor)
 //    api(libs.androidx.navigation.compose)
     api("androidx.navigation:navigation-compose:2.9.0")
-    // Основная зависимость Navigation Compose
-
-    // Явное добавление Navigation Runtime (обязательно!)
     api("androidx.navigation:navigation-runtime:2.9.0")
-
-    // Дополнительно: если используете Kotlin
     api("androidx.navigation:navigation-runtime-ktx:2.9.0")
+    api("androidx.navigation:navigation-common:2.9.0")
+    api("androidx.navigation:navigation-common-ktx:2.9.0")
 
     implementation(libs.androidx.activity.compose.v180)
     implementation(libs.accompanist.permissions)
