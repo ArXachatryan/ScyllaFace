@@ -42,13 +42,14 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "1.0.0"
+            version = "1.0.7"
+            artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
 
     repositories {
         maven {
-            name = "GithubPackages"
+            name = "ScyllaFace"
             url = uri("https://maven.pkg.github.com/ArXachatryan/ScyllaFace")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")

@@ -1,7 +1,6 @@
 package ai.face.liva.sdk.presentation.screens.consent
 
 import ai.face.liva.sdk.ScyllaAiDetectionType
-import ai.face.liva.sdk.appHelper.global.AppContextHolder.globalContext
 import ai.face.liva.sdk.ext.openLink
 import ai.face.liva.sdk.presentation.component.MainButton
 import ai.face.liva.sdk.presentation.routing.ScreensRouting
@@ -11,14 +10,10 @@ import ai.face.liva.sdk.ui.theme.appSecondaryStrokeColor
 import ai.face.liva.sdk.ui.theme.appStyleColor
 import ai.face.liva.sdk.ui.theme.appWhiteColor
 import ai.face.liva.sdk.ui.theme.inputBorderShape
-import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,7 +24,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Divider

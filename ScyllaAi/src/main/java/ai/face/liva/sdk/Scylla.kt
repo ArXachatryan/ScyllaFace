@@ -58,8 +58,6 @@ class Scylla : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-
         var configParams:ScyllaAiConfiguration? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra("CONFIG", ScyllaAiConfiguration::class.java)
         } else {

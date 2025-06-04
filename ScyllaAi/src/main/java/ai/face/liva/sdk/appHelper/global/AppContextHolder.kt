@@ -6,5 +6,5 @@ import android.content.Context
 @SuppressLint("StaticFieldLeak")
 object AppContextHolder {
 
-    lateinit var globalContext: Context
+    lateinit var scyllaGlobalContext: Context
 }

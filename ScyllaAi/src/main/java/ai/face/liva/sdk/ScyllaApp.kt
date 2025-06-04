@@ -4,11 +4,10 @@ import ai.face.liva.sdk.appHelper.global.AppContextHolder
 import ai.face.liva.sdk.di.initKoin
 import android.app.Application
 
-class ScyllaApp : Application() {
+ class ScyllaApp  {
 
-    override fun onCreate() {
-        super.onCreate()
-        initKoin(this)
-        AppContextHolder.globalContext = applicationContext
-    }
+        fun initScyllaApp(application: Application) {
+            initKoin(application)
+            AppContextHolder.scyllaGlobalContext = application.applicationContext
+       }
 }

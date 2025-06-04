@@ -3,6 +3,7 @@ package ai.face.livenessai
 import ai.face.liva.sdk.ScyllaAiDetectionType
 import ai.face.liva.sdk.sdkBuilder.DetectionResultType
 import ai.face.liva.sdk.sdkBuilder.ScyllaAI
+
 import ai.face.liva.sdk.sdkBuilder.ScyllaAiConfiguration
 import ai.face.liva.sdk.ui.theme.appBackgroundColor
 import ai.face.liva.sdk.ui.theme.appLightColor

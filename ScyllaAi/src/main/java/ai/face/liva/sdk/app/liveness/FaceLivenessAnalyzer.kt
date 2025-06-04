@@ -10,7 +10,7 @@ import ai.face.liva.sdk.app.liveness.constants.FaceDetect.MOVE_CAMERA_FAR
 import ai.face.liva.sdk.app.liveness.constants.FaceDetect.OPEN_LEFT_EYES
 import ai.face.liva.sdk.app.liveness.constants.FaceDetect.OPEN_RIGHT_EYES
 import ai.face.liva.sdk.app.liveness.constants.FaceDetect.OPEN_YOUR_EYES
-import ai.face.liva.sdk.appHelper.global.AppContextHolder.globalContext
+import ai.face.liva.sdk.appHelper.global.AppContextHolder.scyllaGlobalContext
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.graphics.Bitmap
@@ -273,7 +273,7 @@ fun saveBitmapToGallery(bitmap: Bitmap) {
             put(MediaStore.Images.Media.IS_PENDING, 1)
         }
 
-        val contentResolver = globalContext.contentResolver
+        val contentResolver = scyllaGlobalContext.contentResolver
         val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
 
         uri?.let {

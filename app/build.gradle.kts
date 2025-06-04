@@ -41,7 +41,8 @@ android {
 
 
 dependencies {
-    implementation(project(":ScyllaAi"))
+    implementation("com.scylla:scyllaai:1.0.6")
+//    implementation(project(":ScyllaAi"))
     //    implementation ("com.github.FaciaMobile:android-core:3.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -51,7 +52,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(project(":ScyllaAi"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
