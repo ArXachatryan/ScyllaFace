@@ -2,11 +2,8 @@ package ai.face.liva.sdk.sdkBuilder
 
 import ai.face.liva.sdk.Scylla
 import ai.face.liva.sdk.appHelper.ext.isNull
-import ai.face.liva.sdk.appHelper.global.AppContextHolder
-import ai.face.liva.sdk.di.initKoin
 import ai.face.liva.sdk.ext.launchActivity
 import android.app.Activity
-import android.app.Application
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -41,7 +38,10 @@ class ScyllaAI {
 
     class Builder(private val activity: Activity,private val imitation:String) {
 
+
+
         init {
+
             configParams = null
             resultImitation = imitation
         }

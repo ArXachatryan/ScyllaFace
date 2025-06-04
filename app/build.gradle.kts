@@ -43,6 +43,8 @@ android {
 dependencies {
     implementation(project(":ScyllaAi"))
     //    implementation ("com.github.FaciaMobile:android-core:3.1.0")
+
+    implementation("com.google.mlkit:face-detection:16.1.7")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

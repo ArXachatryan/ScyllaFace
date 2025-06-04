@@ -1,11 +1,17 @@
 package ai.face.liva.sdk
 
+import ai.face.liva.sdk.di.networkModule
+import ai.face.liva.sdk.di.repositoryModule
+import ai.face.liva.sdk.di.useCaseModule
+import ai.face.liva.sdk.di.viewModelModule
 import ai.face.liva.sdk.presentation.routing.ScreensRouting
 import ai.face.liva.sdk.presentation.screens.analyzing.AnalyzingScreen
 import ai.face.liva.sdk.presentation.screens.consent.ConsentScreen
 import ai.face.liva.sdk.presentation.screens.detection.screen.DetectionScreen
 import ai.face.liva.sdk.presentation.screens.uploadDocument.ImageCaptureScreen
 import ai.face.liva.sdk.sdkBuilder.ScyllaAiConfiguration
+import ai.face.liva.sdk.sdkBuilder.configParams
+import ai.face.liva.sdk.sdkBuilder.resultImitation
 import ai.face.liva.sdk.ui.theme.ScyllaAITheme
 import ai.face.liva.sdk.ui.theme.appBackgroundColor
 import ai.face.liva.sdk.ui.theme.appLightColor
@@ -40,6 +46,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 enum class ScyllaAiDetectionType {
 
@@ -51,7 +59,6 @@ val topAppBarTitle: MutableState<String> by lazy { mutableStateOf("") }
 val showBack: MutableState<Boolean> by lazy { mutableStateOf(false) }
 
 class Scylla : ComponentActivity() {
-
 
     @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

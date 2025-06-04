@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "1.0.0"
+            version = "3.0.3"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
@@ -147,7 +147,9 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
-    implementation(libs.face.detection)
+//    implementation(libs.face.detection)
+
+    implementation("com.google.mlkit:face-detection:16.1.7")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.core.ktx)
