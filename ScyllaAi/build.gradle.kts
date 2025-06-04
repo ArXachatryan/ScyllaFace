@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "3.0.5"
+            version = "3.0.6"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
@@ -139,6 +139,13 @@ dependencies {
     implementation(libs.logging.interceptor)
 //    api(libs.androidx.navigation.compose)
     api("androidx.navigation:navigation-compose:2.9.0")
+    // Основная зависимость Navigation Compose
+
+    // Явное добавление Navigation Runtime (обязательно!)
+    api("androidx.navigation:navigation-runtime:2.9.0")
+
+    // Дополнительно: если используете Kotlin
+    api("androidx.navigation:navigation-runtime-ktx:2.9.0")
 
     implementation(libs.androidx.activity.compose.v180)
     implementation(libs.accompanist.permissions)
