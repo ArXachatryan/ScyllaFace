@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("bar") {
             groupId = "com.scylla"
             artifactId = "scyllaai"
-            version = "1.0.7"
+            version = "1.0.3"
             artifact("$buildDir/outputs/aar/ScyllaAi-release.aar")
         }
     }
